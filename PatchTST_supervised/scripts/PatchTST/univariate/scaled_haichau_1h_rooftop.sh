@@ -31,7 +31,7 @@ do
       --model $model_name \
       --data $data_name \
       --features S \
-      --target $target
+      --target $target \
       --seq_len $seq_len \
       --pred_len $pred_len \
       --enc_in 1 \
@@ -45,6 +45,6 @@ do
       --patch_len 16\
       --stride 8\
       --des 'Exp' \
-      --train_epochs 100\
+      --train_epochs 10\
       --itr 1 --batch_size 32 --learning_rate 0.0001 >logs/LongForecasting/univariate/$model_name'_fS_'$model_id_name'_'$seq_len'_'$pred_len.log
 done
