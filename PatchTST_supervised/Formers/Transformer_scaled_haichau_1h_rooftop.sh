@@ -22,12 +22,13 @@ do
   python -u run_longExp.py \
     --random_seed $random_seed \
     --is_training 1 \
-    --root_path $root_path \
+    --root_path $root_path_name \
     --data_path $data_path_name \
     --model_id $model_id_name'_'$pred_len \
     --model $model_name \
     --data $data_name \
     --features S \
+    --target $target \
     --seq_len $seq_len \
     --label_len 1 \
     --pred_len $pred_len \
@@ -38,6 +39,7 @@ do
     --dec_in 1 \
     --c_out 1 \
     --des 'Exp' \
+    --train_epochs 10 \
     --itr 1 >logs/LongForecasting/$model_name'_rooftop_'$pred_len.log
 done
 done

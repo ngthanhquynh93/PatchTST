@@ -31,4 +31,4 @@ python -u run_longExp.py \
   --pred_len $pred_len \
   --enc_in 1 \
   --des 'Exp' \
-  --itr 100 --batch_size 64 --feature S --learning_rate 0.005 >logs/LongForecasting/$model_name'_'fS$model_id_name'_'$pred_len.log
+  --itr 1 --batch_size 64 --feature S --learning_rate 0.005 >logs/LongForecasting/$model_name'_'fS$model_id_name'_'$pred_len.log
