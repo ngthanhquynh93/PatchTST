@@ -16,10 +16,11 @@ model_name=PatchTST
 root_path_name=./dataset/
 data_path_name=scaled_haichau_1h_rooftop.csv
 model_id_name=scaled_haichau_1h_rooftop
-data_name=scaled_haichau_1h_rooftop
+data_name=custom
+target=Active_Power
 
 random_seed=42
-for pred_len in 96 192 336 720
+for pred_len in 1
 do
     python -u run_longExp.py \
       --random_seed $random_seed \
@@ -30,6 +31,7 @@ do
       --model $model_name \
       --data $data_name \
       --features S \
+      --target $target
       --seq_len $seq_len \
       --pred_len $pred_len \
       --enc_in 1 \
