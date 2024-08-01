@@ -297,9 +297,17 @@ class Exp_Main(Exp_Basic):
         if not os.path.exists(folder_path):
             os.makedirs(folder_path)
 
+        # Đường dẫn lưu tệp trong Google Drive
+        file_path = '/content/drive/My Drive/result.txt'
         mae, mse, rmse, mape, mspe, rse, corr, corrcoef = metric(preds, trues)
         print('mse:{}, mae:{}, rse:{}'.format(mse, mae, rse))
         f = open("result.txt", 'a')
+        f.write(setting + "  \n")
+        f.write('mse:{}, mae:{}, rmse:{}, mape:{}, corrcoef:{}'.format(mse, mae, rmse, mape, corrcoef))
+        f.write('\n')
+        f.write('\n')
+        f.close()
+        f = open(file_path, 'w')
         f.write(setting + "  \n")
         f.write('mse:{}, mae:{}, rmse:{}, mape:{}, corrcoef:{}'.format(mse, mae, rmse, mape, corrcoef))
         f.write('\n')
