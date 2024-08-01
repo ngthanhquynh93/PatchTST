@@ -32,6 +32,7 @@ class series_decomp(nn.Module):
 
     def forward(self, x):
         moving_mean = self.moving_avg(x)
+
         res = x - moving_mean
         return res, moving_mean
 

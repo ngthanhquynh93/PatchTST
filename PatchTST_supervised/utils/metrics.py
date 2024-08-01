@@ -11,6 +11,9 @@ def CORR(pred, true):
     d += 1e-12
     return 0.01*(u / d).mean(-1)
 
+def CORRCOEF(pred, true):
+    correlation_matrix = np.corrcoef(pred, true)
+    return correlation_matrix[0, 1]
 
 def MAE(pred, true):
     return np.mean(np.abs(pred - true))
@@ -40,5 +43,6 @@ def metric(pred, true):
     mspe = MSPE(pred, true)
     rse = RSE(pred, true)
     corr = CORR(pred, true)
+    corrcoef = CORRCOEF(pred, true)
 
-    return mae, mse, rmse, mape, mspe, rse, corr
+    return mae, mse, rmse, mape, mspe, rse, corr, corrcoef
