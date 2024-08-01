@@ -12,7 +12,7 @@ def CORR(pred, true):
     return 0.01*(u / d).mean(-1)
 
 def CORRCOEF(pred, true):
-    correlation_matrix = np.corrcoef(pred, true)
+    correlation_matrix = np.corrcoef(pred[:,:, -1].flatten(), true.flatten())
     return correlation_matrix[0, 1]
 
 def MAE(pred, true):
