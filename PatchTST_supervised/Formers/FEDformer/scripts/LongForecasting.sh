@@ -7,7 +7,7 @@ if [ ! -d "../logs/LongForecasting" ]; then
     mkdir ../logs/LongForecasting
 fi
 
-for preLen in 1
+for seq_len in 24 72 168 336 720
 do
 # ETTm1
 python -u run.py \
@@ -18,9 +18,9 @@ python -u run.py \
   --data custom \
   --features S \
   --target Active_Power \
-  --seq_len 96 \
+  --seq_len $seq_len \
   --label_len 48 \
-  --pred_len $preLen \
+  --pred_len 1 \
   --e_layers 3 \
   --d_layers 2 \
   --factor 1 \

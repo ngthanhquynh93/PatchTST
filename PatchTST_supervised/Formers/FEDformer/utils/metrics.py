@@ -30,6 +30,9 @@ def MAPE(pred, true):
 def MSPE(pred, true):
     return np.mean(np.square((pred - true) / true))
 
+def CORRCOEF(pred, true):
+    correlation_matrix = np.corrcoef(pred[:,:, -1].flatten(), true.flatten())
+    return correlation_matrix[0, 1]
 
 def metric(pred, true):
     mae = MAE(pred, true)
@@ -37,8 +40,9 @@ def metric(pred, true):
     rmse = RMSE(pred, true)
     mape = MAPE(pred, true)
     mspe = MSPE(pred, true)
+    corrcoef=CORRCOEF(pred, true)
 
-    return mae, mse, rmse, mape, mspe
+    return mae, mse, rmse, mape, mspe, corrcoef
 
 def metric2(pred, true):
     mae = MAE(pred, true)
